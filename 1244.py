@@ -43,5 +43,15 @@ for test_case in range(1, T + 1):
                         visit.add(tmp + str(cnt + 1))
                         q.append([nxt, cnt + 1])
                     numList[i], numList[j] = numList[j], numList[i] # 원복함
+                elif cnt == b - 1:
+                    numList[i], numList[j] = numList[j], numList[i]
+                    tmp = ''
+                    for k in range(l):
+                        tmp += numList[k]
+                    if tmp + str(cnt + 1) not in visit and cnt + 1 <= b:
+                        nxt = [numList[k] for k in range(l)]
+                        visit.add(tmp + str(cnt + 1))
+                        q.append([nxt, cnt + 1])
+                    numList[i], numList[j] = numList[j], numList[i] # 원복함
         q.popleft()
     print('#%s %s' %(test_case, ans))
